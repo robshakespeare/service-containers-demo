@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  db:
+    container_name: mysql_db
+    image: mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_USER: demo
+      MYSQL_PASSWORD: srvcontdemo123&
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
