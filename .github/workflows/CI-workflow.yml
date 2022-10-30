@@ -17,6 +17,7 @@ jobs:
         working-directory: ./api
 
     services:
+      # MySQL container
       mysql_db:
         image: mysql
         ports:
@@ -38,19 +39,35 @@ jobs:
           node-version: 16
       - name: "Install dependencies of API"
         run: yarn install
+
+      # Unit Test
       - name: "Unit Test API"
-        run: yarn test:cov
+        run: yarn test:cov --reporters=default --reporters=jest-html-reporter
+      - name: Publish unit test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-test-results
+          path: ./api/test-report.html
+      - name: Publish unit test code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-test-code-coverage-results
+          path: ./api/coverage/clover.xml
+
+      # E2E Test
       - name: "Create and migrate test database"
         run: yarn ensure-test-db
       - name: "E2E Test API"
-        run: yarn test:e2e
-      - name: "Build distributable release version of API"
-        run: yarn build
-      - name: Publish code coverage results
+        run: yarn test:e2e --reporters=default --reporters=jest-html-reporter
+      - name: Publish e2e test results
         uses: actions/upload-artifact@v3
         with:
-          name: code-coverage-results
-          path: ./api/coverage/clover.xml
+          name: e2e-test-results
+          path: ./api/test-report.html
+
+      # Build
+      - name: "Build distributable release version of API"
+        run: yarn build
       - name: Publish distributable
         uses: actions/upload-artifact@v3
         with:
