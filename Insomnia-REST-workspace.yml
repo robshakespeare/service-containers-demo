@@ -1,0 +1,163 @@
+_type: export
+__export_format: 4
+__export_date: 2022-10-30T22:10:51.815Z
+__export_source: insomnia.desktop.app:v2022.5.1
+resources:
+  - _id: req_b607009df1ec451c8accaa2c67aca090
+    parentId: wrk_913864f886464958bfaf7b9c1e82f3c1
+    modified: 1667146040967
+    created: 1667146034744
+    url: http://localhost:3000
+    name: Root Info
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1667145991730
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_913864f886464958bfaf7b9c1e82f3c1
+    parentId: null
+    modified: 1667145988894
+    created: 1667145988894
+    name: Service Containers Demo
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_7aa72b15576543e0b9767465e4ca92b2
+    parentId: wrk_913864f886464958bfaf7b9c1e82f3c1
+    modified: 1667146922499
+    created: 1667146480195
+    url: http://localhost:3000/user/73919171-358a-4158-8959-7b8e7da4a54c
+    name: Get User
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1667145991705
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_32da48e9275c408fb44573f8cf3625b6
+    parentId: wrk_913864f886464958bfaf7b9c1e82f3c1
+    modified: 1667160744873
+    created: 1667146588973
+    url: http://localhost:3000/user/non-existent-id
+    name: Get User - Not Found
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1667145991692.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_35a02d699c364487bb2adaedd1239e6f
+    parentId: wrk_913864f886464958bfaf7b9c1e82f3c1
+    modified: 1667167749874
+    created: 1667145991680
+    url: http://localhost:3000/user
+    name: Create User
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"firstName": "TestFirstname",
+        	"lastName": "TestLastName"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_381e753e46314ef296c625032c1318e7
+    authentication: {}
+    metaSortKey: -1667145991680
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_52fb68ba51ca4c51b34470331e556e87
+    parentId: wrk_913864f886464958bfaf7b9c1e82f3c1
+    modified: 1667167744727
+    created: 1667146896136
+    url: http://localhost:3000/user
+    name: Update User
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": "73919171-358a-4158-8959-7b8e7da4a54c",
+        	"firstName": "Updated",
+        	"lastName": "Oh Yeh"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_381e753e46314ef296c625032c1318e7
+    authentication: {}
+    metaSortKey: -1664586661805.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_682b30f58c1b68387fab487ba30319de96803a13
+    parentId: wrk_913864f886464958bfaf7b9c1e82f3c1
+    modified: 1667145988902
+    created: 1667145988902
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1667145988902
+    _type: environment
+  - _id: jar_682b30f58c1b68387fab487ba30319de96803a13
+    parentId: wrk_913864f886464958bfaf7b9c1e82f3c1
+    modified: 1667145988904
+    created: 1667145988904
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_4bb57d27a81345e29a69c3edc8440c07
+    parentId: wrk_913864f886464958bfaf7b9c1e82f3c1
+    modified: 1667145988896
+    created: 1667145988896
+    fileName: Service Containers Demo
+    contents: ""
+    contentType: yaml
+    _type: api_spec
