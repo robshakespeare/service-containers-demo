@@ -11,6 +11,9 @@ jobs:
   test-and-build-api:
     runs-on: ubuntu-latest
     name: Test and Build API
+    defaults:
+      run:
+        working-directory: ${{ env.working-directory }}/api
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
