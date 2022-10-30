@@ -1,3 +1,8 @@
+# Service Containers Demo
+
+Demonstration of using GitHub Actions and Workflows and service containers to enable out-of-infrastructure integration tests that include data access.
+
+
 ## Local Development Dependencies
 
 To start the local development dependencies (MySQL database server) locally, run:
@@ -17,6 +22,7 @@ To ensure the databases exists, and are up to date, run:
 ```
 yarn ensure-dbs
 ```
+
 
 ## Database Migrations
 
