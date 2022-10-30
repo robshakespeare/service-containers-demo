@@ -10,6 +10,7 @@ export const dataSourceOptions: DataSourceOptions = {
   password: process.env.DB_PASSWORD || 'srvcontdemo123&', // only local development DB passwords would be found in source code, sensitive values must always be stored in a secure vault
   database: process.env.DB_DATABASE || 'localdev',
   entities: [User],
+  logging: process.env.DB_ENABLE_LOGGING === 'true' ? true : undefined,
 };
 
 export const createDatabaseIfNotExists = async () => {
