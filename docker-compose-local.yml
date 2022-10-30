@@ -7,9 +7,7 @@ services:
       - "3306:3306"
     restart: always
     environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
-      MYSQL_USER: demo
-      MYSQL_PASSWORD: srvcontdemo123& # This password is only intended for local development, do not use it elsewhere
+      MYSQL_ROOT_PASSWORD: srvcontdemo123& # This root password is only intended for local development, do not use it elsewhere
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       timeout: 20s
