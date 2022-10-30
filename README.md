@@ -26,7 +26,7 @@ yarn ensure-dbs
 
 ## Dev and Test
 
-**IMPORTANT: Please ensure the steps are followed in the `Local Development Dependencies` section above first. i.e. the database server must be running locally, and the databases and schemas must be created and up to date.**
+**IMPORTANT: Please ensure the steps are followed in the `Local Development Dependencies` section above first. i.e. the database server must be running locally, and the databases and schemas must be created and be up to date.**
 
 To start the app running locally (it will be available on http://localhost:3000):
 ```
@@ -41,6 +41,11 @@ yarn install && yarn test
 To run the e2e tests:
 ```
 yarn install && yarn test:e2e
+```
+
+To run a single test, or subset of the tests, use the `-t {regex}` argument, for example:
+```
+yarn test:e2e -t 'PUT new user'
 ```
 
 
