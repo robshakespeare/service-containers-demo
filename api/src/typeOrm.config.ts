@@ -21,11 +21,25 @@ export const createDatabaseIfNotExists = async () => {
   const queryRunner = dataSource.createQueryRunner();
   try {
     const dbName = `${dataSourceOptions.database ?? 'default'}`;
-    console.log(`Ensuring database '${dbName}' exists...`);
+    console.debug(`Ensuring database '${dbName}' exists...`);
     await queryRunner.createDatabase(dbName, true);
-    console.log('Success');
+    console.debug('Success');
   } finally {
     await queryRunner.release();
+    await dataSource.destroy();
+  }
+};
+
+export const isDatabaseAvailable = async (): Promise<{ isDbAvailable: boolean, userCount: number }> => {
+  const dataSource = new DataSource(dataSourceOptions);
+  await dataSource.initialize();
+  const queryRunner = dataSource.createQueryRunner();
+  try {
+    const result = await queryRunner.query('SELECT COUNT(*) AS userCount FROM `user`');
+    return { isDbAvailable: true, userCount: result[0].userCount };
+  } finally {
+    await queryRunner.release();
+    await dataSource.destroy();
   }
 };
 
