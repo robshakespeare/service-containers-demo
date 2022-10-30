@@ -1,0 +1,21 @@
+name: CI workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [ main ]
+
+jobs:
+  test-and-build-api:
+    runs-on: ubuntu-latest
+    name: Test and Build API
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - run: yarn install
