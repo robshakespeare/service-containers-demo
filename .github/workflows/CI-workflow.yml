@@ -25,9 +25,9 @@ jobs:
           MYSQL_ROOT_PASSWORD: srvcontdemo123& # This root password is only intended for local development & build pipeline, do not use it elsewhere
         options: >-
           --health-cmd "mysqladmin ping -h localhost"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          --health-interval 2s
+          --health-timeout 1s
+          --health-retries 30
 
     steps:
       - name: "Checkout code"
