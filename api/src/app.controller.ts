@@ -6,7 +6,11 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getRootInfo() {
+    return {
+      service: 'Service Containers Demo API',
+      date: new Date(),
+      message: this.appService.getHello(),
+    };
   }
 }
