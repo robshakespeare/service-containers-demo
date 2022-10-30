@@ -17,16 +17,36 @@ And to stop, run:
 docker-compose -f docker-compose-local.yml down
 ```
 
-To ensure the databases exists, and are up to date, run:
+To ensure the databases and schemas exist, and are up to date, run:
 
 ```
 yarn ensure-dbs
 ```
 
 
+## Dev and Test
+
+**IMPORTANT: Please ensure the steps are followed in the `Local Development Dependencies` section above first. i.e. the database server must be running locally, and the databases and schemas must be created and up to date.**
+
+To start the app running locally (it will be available on http://localhost:3000):
+```
+yarn install && yarn start
+```
+
+To run the unit tests:
+```
+yarn install && yarn test
+```
+
+To run the e2e tests:
+```
+yarn install && yarn test:e2e
+```
+
+
 ## Database Migrations
 
-**These commands should be run from the `./api/` directory.**
+**IMPORTANT: These commands should be run from the `./api/` directory.**
 
 To create a new migration:
 
