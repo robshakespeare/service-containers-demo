@@ -21,7 +21,7 @@ describe('UserController (e2e)', () => {
     return request(app.getHttpServer())
       .get('/user/non-existent-id')
       .expect(404)
-      .expect(response => expect(response.body.message).toEqual('No user found with id of: non-existent-id'));
+      .expect((response) => expect(response.body.message).toEqual('No user found with id of: non-existent-id'));
   });
 
   it('PUT new user without id, generates an id for the user, and saves and returns the user', async () => {
@@ -29,22 +29,22 @@ describe('UserController (e2e)', () => {
     const lastName = `lastName${getRandomNumber()}`;
 
     // ACT
-    const response = await request(app.getHttpServer())
-      .put('/user')
-      .send({
-        firstName,
-        lastName,
-      });
+    const response = await request(app.getHttpServer()).put('/user').send({
+      firstName,
+      lastName,
+    });
 
     // ASSERT
     expect(response.statusCode).toBe(200);
     expect(response.body.id).not.toBeFalsy();
     expect(response.body.id).toHaveLength(36); // uuid string length
-    expect(response.body).toEqual(expect.objectContaining({
-      firstName,
-      lastName,
-      isActive: true,
-    }));
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        firstName,
+        lastName,
+        isActive: true,
+      }),
+    );
   });
 
   it('PUT new user with an id, does not generate an id for the user, and saves and returns the user', async () => {
@@ -53,22 +53,22 @@ describe('UserController (e2e)', () => {
     const lastName = `lastName${getRandomNumber()}`;
 
     // ACT
-    const response = await request(app.getHttpServer())
-      .put('/user')
-      .send({
-        id,
-        firstName,
-        lastName,
-      });
-
-    // ASSERT
-    expect(response.statusCode).toBe(200);
-    expect(response.body).toEqual(expect.objectContaining({
+    const response = await request(app.getHttpServer()).put('/user').send({
       id,
       firstName,
       lastName,
-      isActive: true,
-    }));
+    });
+
+    // ASSERT
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        id,
+        firstName,
+        lastName,
+        isActive: true,
+      }),
+    );
   });
 
   it('does create, read and update as expected', async () => {
@@ -78,15 +78,13 @@ describe('UserController (e2e)', () => {
 
     // ACT & ASSERT: Create
     {
-      const createResponse = await request(app.getHttpServer())
-        .put('/user')
-        .send({
-          firstName,
-          lastName,
-        });
+      const createResponse = await request(app.getHttpServer()).put('/user').send({
+        firstName,
+        lastName,
+      });
 
       expect(createResponse.statusCode).toBe(200);
-      expect(typeof createResponse.body.id).toBe("string");
+      expect(typeof createResponse.body.id).toBe('string');
 
       id = createResponse.body.id as string;
       expect(id).toBeDefined();
@@ -97,12 +95,14 @@ describe('UserController (e2e)', () => {
       const readResponse = await request(app.getHttpServer()).get(`/user/${id}`).send();
 
       expect(readResponse.statusCode).toBe(200);
-      expect(readResponse.body).toEqual(expect.objectContaining({
-        id,
-        firstName,
-        lastName,
-        isActive: true,
-      }));
+      expect(readResponse.body).toEqual(
+        expect.objectContaining({
+          id,
+          firstName,
+          lastName,
+          isActive: true,
+        }),
+      );
     }
 
     // ACT & ASSERT: Update
@@ -117,12 +117,14 @@ describe('UserController (e2e)', () => {
         });
 
       expect(updateResponse.statusCode).toBe(200);
-      expect(updateResponse.body).toEqual(expect.objectContaining({
-        id,
-        firstName: `Updated ${firstName}`,
-        lastName: `Updated ${lastName}`,
-        isActive: false,
-      }));
+      expect(updateResponse.body).toEqual(
+        expect.objectContaining({
+          id,
+          firstName: `Updated ${firstName}`,
+          lastName: `Updated ${lastName}`,
+          isActive: false,
+        }),
+      );
     }
 
     // ACT & ASSERT: Re-Read
@@ -130,12 +132,14 @@ describe('UserController (e2e)', () => {
       const readResponse = await request(app.getHttpServer()).get(`/user/${id}`).send();
 
       expect(readResponse.statusCode).toBe(200);
-      expect(readResponse.body).toEqual(expect.objectContaining({
-        id,
-        firstName: `Updated ${firstName}`,
-        lastName: `Updated ${lastName}`,
-        isActive: false,
-      }));
+      expect(readResponse.body).toEqual(
+        expect.objectContaining({
+          id,
+          firstName: `Updated ${firstName}`,
+          lastName: `Updated ${lastName}`,
+          isActive: false,
+        }),
+      );
     }
   });
 });

@@ -1,4 +1,4 @@
-import { isDatabaseAvailable } from "../src/typeOrm.config";
+import { isDatabaseAvailable } from '../src/typeOrm.config';
 
 describe('Database', () => {
   it('Database should be available to connect', async () => {

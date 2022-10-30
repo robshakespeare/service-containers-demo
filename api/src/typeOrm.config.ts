@@ -31,7 +31,7 @@ export const createDatabaseIfNotExists = async () => {
   }
 };
 
-export const isDatabaseAvailable = async (): Promise<{ isDbAvailable: boolean, userCount: number }> => {
+export const isDatabaseAvailable = async (): Promise<{ isDbAvailable: boolean; userCount: number }> => {
   const dataSource = new DataSource(dataSourceOptions);
   await dataSource.initialize();
   const queryRunner = dataSource.createQueryRunner();

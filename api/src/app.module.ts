@@ -6,10 +6,7 @@ import { dataSourceOptions } from './typeOrm.config';
 import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot(dataSourceOptions),
-    UsersModule,
-  ],
+  imports: [TypeOrmModule.forRoot(dataSourceOptions), UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
