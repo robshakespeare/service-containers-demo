@@ -46,3 +46,13 @@ jobs:
         run: yarn test:e2e
       - name: "Build distributable release version of API"
         run: yarn build
+      - name: Publish code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-results
+          path: ./api/coverage/clover.xml
+      - name: Publish distributable
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: ./api/dist/
