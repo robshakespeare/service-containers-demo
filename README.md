@@ -1,6 +1,6 @@
 # Service Containers Demo
 
-Demonstration of using GitHub Actions and Workflows and service containers to enable out-of-infrastructure integration tests that include data access.
+Demonstration of using GitHub Actions and Workflows and service containers to enable out-of-infrastructure integration tests that include data access.  Technologies used include: TypeScript, Node.js, Yarn, NestJS, Docker, MySQL, TypeORM, Jest, Supertest, GitHub Actions, GitHub Workflows.
 
 
 ## Prerequisites
