@@ -30,17 +30,19 @@ jobs:
           --health-retries 5
 
     steps:
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@v3
-      - name: Setup Node.js
+      - name: "Setup Node.js"
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: yarn install
-        name: Install dependencies of API
-      - run: yarn test:cov
-        name: Unit Test API
-      - run: yarn test:e2e
-        name: E2E Test API
-      - run: yarn build
-        name: Build distributable release version of API
+      - name: "Install dependencies of API"
+        run: yarn install
+      - name: "Unit Test API"
+        run: yarn test:cov
+      - name: "Create and migrate test database"
+        run: yarn ensure-test-db
+      - name: "E2E Test API"
+        run: yarn test:e2e
+      - name: "Build distributable release version of API"
+        run: yarn build
