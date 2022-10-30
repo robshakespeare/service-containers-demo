@@ -1,7 +1,6 @@
 {
   "moduleFileExtensions": ["js", "json", "ts"],
   "rootDir": ".",
-  "globalTeardown": "./globalTeardown.ts",
   "testEnvironment": "node",
   "testRegex": ".e2e-spec.ts$",
   "transform": {

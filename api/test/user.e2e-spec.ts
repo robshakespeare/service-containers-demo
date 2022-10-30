@@ -2,7 +2,7 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { startAppAsync } from './e2e-utils';
 
-describe('AppController (e2e)', () => {
+describe('UserController (e2e)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
@@ -15,10 +15,10 @@ describe('AppController (e2e)', () => {
     }
   });
 
-  it('/ (GET)', () => {
+  it('GET user with non existent id return 404 not found', () => {
     return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect(response => expect(response.body.message).toEqual('Hello World!'));
+      .get('/user/non-existent-id')
+      .expect(404)
+      .expect(response => expect(response.body.message).toEqual('No user found with id of: non-existent-id'));
   });
 });
