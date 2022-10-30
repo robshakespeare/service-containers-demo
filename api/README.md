@@ -9,9 +9,9 @@ Please view the main [README](../README.md) for more information.
 
 ```json
 {
-	"id": "73919171-358a-4158-8959-7b8e7da4a54c",
-	"firstName": "Dave",
-	"lastName": "Gorman",	
-	"isActive": true
+  "id": "73919171-358a-4158-8959-7b8e7da4a54c",
+  "firstName": "Dave",
+  "lastName": "Gorman",
+  "isActive": true
 }
 ```
