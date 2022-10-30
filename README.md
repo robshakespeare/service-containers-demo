@@ -3,6 +3,19 @@
 Demonstration of using GitHub Actions and Workflows and service containers to enable out-of-infrastructure integration tests that include data access.
 
 
+## Prerequisites
+
+* [Node.js 16](https://nodejs.org/download/release/v16.18.0/)
+* Yarn 1.22: `npm install -g 'yarn@1.22.19'`
+* Docker Engine and `docker-compose`
+	* Docker Engine and Compose are used to run the Local Development Dependencies
+	* Options are:
+		* Windows users can setup Docker Engine using WSL2: https://docs.microsoft.com/en-us/windows/wsl/install
+		* Mac users can use a combination of hyperkit and minikube to setup Docker Engine
+		* Use Docker Desktop (requires a paid-for licence)
+		* Rancher Desktop: https://rancherdesktop.io
+
+
 ## Local Development Dependencies
 
 To start the local development dependencies (MySQL database server) locally, run:
