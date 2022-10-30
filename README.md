@@ -1,6 +1,6 @@
-## Local Development
+## Local Development Dependencies
 
-To start the MySQL database server locally, run:
+To start the local development dependencies (MySQL database server) locally, run:
 
 ```
 docker-compose -f docker-compose-local.yml up --detach
@@ -10,6 +10,12 @@ And to stop, run:
 
 ```
 docker-compose -f docker-compose-local.yml down
+```
+
+To ensure the databases exists, and are up to date, run:
+
+```
+yarn ensure-dbs
 ```
 
 ## Database Migrations
