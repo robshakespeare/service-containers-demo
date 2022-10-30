@@ -10,5 +10,6 @@ services:
       MYSQL_ROOT_PASSWORD: srvcontdemo123& # This root password is only intended for local development & build pipeline, do not use it elsewhere
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 20s
-      retries: 10
+      interval: 10s
+      timeout: 5s
+      retries: 5
