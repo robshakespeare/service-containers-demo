@@ -19,6 +19,8 @@ jobs:
     services:
       mysql_db:
         image: mysql
+        ports:
+          - 3306:3306
         env:
           MYSQL_ROOT_PASSWORD: srvcontdemo123& # This root password is only intended for local development & build pipeline, do not use it elsewhere
         options: >-
@@ -28,15 +30,17 @@ jobs:
           --health-retries 5
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - run: yarn install
-    - run: yarn test:cov
-      name: Unit Test API
-    - run: yarn test:e2e
-      name: E2E Test API
-    - run: yarn build
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: yarn install
+        name: Install dependencies of API
+      - run: yarn test:cov
+        name: Unit Test API
+      - run: yarn test:e2e
+        name: E2E Test API
+      - run: yarn build
+        name: Build distributable release version of API
