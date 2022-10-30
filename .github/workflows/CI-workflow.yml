@@ -11,9 +11,22 @@ jobs:
   test-and-build-api:
     runs-on: ubuntu-latest
     name: Test and Build API
+
     defaults:
       run:
-        working-directory: ${{ env.working-directory }}/api
+        working-directory: ./api
+
+    services:
+      mysql_db:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: srvcontdemo123& # This root password is only intended for local development & build pipeline, do not use it elsewhere
+        options: >-
+          --health-cmd "mysqladmin ping -h localhost"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
