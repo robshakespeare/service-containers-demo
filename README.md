@@ -2,6 +2,8 @@
 
 Demonstration of using GitHub Actions and Workflows and service containers to enable out-of-infrastructure integration tests that include data access.  Technologies used include: TypeScript, Node.js, Yarn, NestJS, Docker, MySQL, TypeORM, Jest, Supertest, GitHub Actions, GitHub Workflows.
 
+The end-to-end tests run against the [API](./api/) and integrate with a MySQL database running in a container, either locally or in the CI build pipeline.
+
 
 ## Prerequisites
 
@@ -40,7 +42,9 @@ yarn ensure-dbs
 
 ## Dev and Test
 
-**IMPORTANT: Please ensure the steps are followed in the `Local Development Dependencies` section above first. i.e. the database server must be running locally, and the databases and schemas must be created and be up to date.**
+**IMPORTANT:**
+* **Please ensure the steps are followed in the `Local Development Dependencies` section above first. i.e. the database server must be running locally, and the databases and schemas must be created and be up to date.**
+* **These commands should be run from the `./api/` directory.**
 
 To start the app running locally (it will be available on http://localhost:3000):
 ```
