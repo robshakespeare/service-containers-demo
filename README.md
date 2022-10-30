@@ -10,10 +10,11 @@ Demonstration of using GitHub Actions and Workflows and service containers to en
 * Docker Engine and `docker-compose`
 	* Docker Engine and Compose are used to run the Local Development Dependencies
 	* Options are:
-		* Windows users can setup Docker Engine using WSL2: https://docs.microsoft.com/en-us/windows/wsl/install
+		* Linux users can simply run [Docker Engine](https://docs.docker.com/engine/install/#server) directly
+		* Windows users can setup Docker Engine using any popular Linux distro via [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install) and then following the instructions above
 		* Mac users can use a combination of hyperkit and minikube to setup Docker Engine
-		* Use Docker Desktop (requires a paid-for licence)
-		* Rancher Desktop: https://rancherdesktop.io
+		* Use [Docker Desktop](https://docs.docker.com/desktop/) (requires a paid-for licence for commercial use in larger enterprises)
+		* Use [Rancher Desktop](https://rancherdesktop.io)
 
 
 ## Local Development Dependencies
